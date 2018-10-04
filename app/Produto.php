@@ -1,16 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Prettus\Repository\Contracts\Transformable;
-use Prettus\Repository\Traits\TransformableTrait;
 
-class Produto extends Model implements Transformable
+class Produto extends Model
 {
-    use TransformableTrait;
-
-
 
     /**
      * The attributes that are mass assignable.
