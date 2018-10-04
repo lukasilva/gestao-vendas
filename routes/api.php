@@ -22,9 +22,9 @@ Route::post('login', 'UserController@login');
 Route::post('register', 'UserController@register');
 Route::group(['middleware' => 'auth:api'], function(){
     Route::post('details', 'UserController@details')->middleware('role:admin');
-    Route::resource('pessoa', 'PessoaController@details')->middleware('role:admin');
-    Route::resource('categoria', 'CategoriaController@details')->middleware('role:admin');
-    Route::resource('produto', 'ProdutoController@details')->middleware('role:fornecedor');
-    Route::resource('compra', 'CompraController@details')->middleware('role:cliente|vendedor');
+    Route::resource('pessoa', 'PessoaController')->middleware('role:admin');
+    Route::resource('categoria', 'CategoriaController')->middleware('role:admin');
+    Route::resource('produto', 'ProdutoController')->middleware('role:fornecedor');
+    Route::resource('compra', 'CompraController')->middleware('role:cliente|vendedor');
 });
 
