@@ -23,29 +23,38 @@ class RolesSeeder extends Seeder
 
         $role = DB::table('roles')->where('name', 'sac')->first();
         if (!$role) {
-            $gestor = new Role();
-            $gestor->name = 'sac';
-            $gestor->display_name = 'Sac'; // optional
-            $gestor->description = ''; // optional
-            $gestor->save();
+            $sac = new Role();
+            $sac->name = 'sac';
+            $sac->display_name = 'Sac'; // optional
+            $sac->description = ''; // optional
+            $sac->save();
         }
 
         $role = DB::table('roles')->where('name', 'vendedor')->first();
         if (!$role) {
-            $colaborador = new Role();
-            $colaborador->name = 'vendedor';
-            $colaborador->display_name = 'Vendedor'; // optional
-            $colaborador->description = ''; // optional
-            $colaborador->save();
+            $vendedor = new Role();
+            $vendedor->name = 'vendedor';
+            $vendedor->display_name = 'Vendedor'; // optional
+            $vendedor->description = ''; // optional
+            $vendedor->save();
         }
 
         $role = DB::table('roles')->where('name', 'fornecedor')->first();
         if (!$role) {
-            $colaborador = new Role();
-            $colaborador->name = 'fornecedor';
-            $colaborador->display_name = 'Fornecedor'; // optional
-            $colaborador->description = ''; // optional
-            $colaborador->save();
+            $fornecedor = new Role();
+            $fornecedor->name = 'fornecedor';
+            $fornecedor->display_name = 'Fornecedor'; // optional
+            $fornecedor->description = ''; // optional
+            $fornecedor->save();
+        }
+
+        $role = DB::table('roles')->where('name', 'cliente')->first();
+        if (!$role) {
+            $cliente = new Role();
+            $cliente->name = 'cliente';
+            $cliente->display_name = 'Cliente'; // optional
+            $cliente->description = ''; // optional
+            $cliente->save();
         }
     }
 }
