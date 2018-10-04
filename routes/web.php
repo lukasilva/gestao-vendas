@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
@@ -21,4 +21,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/passpot', function () {
     return view('auth.passport');
+});
+
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
+    Route::get('/cadastro-lista', function () {
+        return view('cadastro-lista');
+    });
+
+    // Route::get('cadastro', 'PessoaController@register')->middleware('role:admin');
 });

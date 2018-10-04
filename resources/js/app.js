@@ -17,6 +17,30 @@ import { Card } from 'bootstrap-vue/es/components';
 
 Vue.use(Card);
 
+import { Form } from 'bootstrap-vue/es/components';
+
+Vue.use(Form);
+
+import { FormCheckbox } from 'bootstrap-vue/es/components';
+
+Vue.use(FormCheckbox);
+
+import { FormGroup } from 'bootstrap-vue/es/components';
+
+Vue.use(FormGroup);
+
+import { FormInput } from 'bootstrap-vue/es/components';
+
+Vue.use(FormInput);
+
+import { FormSelect } from 'bootstrap-vue/es/components';
+
+Vue.use(FormSelect);
+
+import { Table } from 'bootstrap-vue/es/components';
+
+Vue.use(Table);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -45,6 +69,16 @@ Vue.component(
 Vue.component(
     'products-component', 
     require('./components/loja/ProductsComponent.vue')
+);
+
+Vue.component(
+    'cadastro-component', 
+    require('./components/loja/CadastroComponent.vue')
+);
+
+Vue.component(
+    'cadastro-lista-component', 
+    require('./components/loja/CadastroListaComponent.vue')
 );
 
 Vue.component(
