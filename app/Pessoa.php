@@ -4,12 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Prettus\Repository\Contracts\Transformable;
-use Prettus\Repository\Traits\TransformableTrait;
 
-class Pessoa extends Model implements Transformable
+class Pessoa extends Model
 {
-    use TransformableTrait, SoftDeletes;
+    use SoftDeletes;
 
     /**
      * The attributes that should be mutated to dates.

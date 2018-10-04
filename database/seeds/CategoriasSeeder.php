@@ -14,26 +14,26 @@ class CategoriasSeeder extends Seeder
     {
         $categorias = Categoria::all();
         
-        if(!$categorias){
+        // if(!$categorias){
             $categoria = new Categoria();
-            $categoria->descricao = 'Eletronicos';
+            $categoria->nome = 'Eletronicos';
             $categoria->save();
             unset($categoria);
 
             $categoria = new Categoria();
-            $categoria->descricao = 'Móveis';
+            $categoria->nome = 'Móveis';
             $categoria->save();
             unset($categoria);
 
             $categoria = new Categoria();
-            $categoria->descricao = 'Eletrodomesticos';
+            $categoria->nome = 'Eletrodomesticos';
             $categoria->save();
             unset($categoria);
 
             $categoria = new Categoria();
-            $categoria->descricao = 'Informatica';
+            $categoria->nome = 'Informatica';
             $categoria->save();
             unset($categoria);
-        }
+        // }
     }
 }
