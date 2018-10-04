@@ -14,6 +14,7 @@ class Produto extends Model
      */
     protected $fillable = [
         'id',
+        'categoria_id',
         'nome',
         'descricao',
         'valor',
@@ -22,6 +23,11 @@ class Produto extends Model
     ];
 
     public function pessoa()
+    {
+        return $this->belongsTo('App\Pessoa');
+    }
+
+    public function categoria()
     {
         return $this->belongsTo('App\Categoria');
     }

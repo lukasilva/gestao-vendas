@@ -26,5 +26,30 @@ class UsersSeeder extends Seeder
             $user->attachRole($roleAdmin);
         }
 
+        $result = DB::table('users')->where('login', '%', 'fornecedor')->first();
+
+        if (!$result) {
+            
+            $roleFornecedor = Role::where('name', 'fornecedor')->first();
+
+            $user =  User::create([
+                'login' => 'fornecedor1',
+                'name' => 'Lucas Silva',
+                'email' => 'fornecedor1@gmail.com',
+                'password' => bcrypt('admin1234'),
+            ]);
+            $user->attachRole($roleFornecedor);
+            
+            
+
+            $user =  User::create([
+                'login' => 'fornecedor2',
+                'name' => 'Lucas Silva',
+                'email' => 'fornecedor2@gmail.com',
+                'password' => bcrypt('admin1234'),
+            ]);
+            $user->attachRole($roleFornecedor);
+        }
+
     }
 }
