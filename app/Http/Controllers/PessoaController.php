@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Pessoa;
 
 class PessoaController extends Controller
 {
@@ -34,7 +35,9 @@ class PessoaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pessoa = new Pessoa($request->all());
+        $pessoa->save();
+        return $pessoa;
     }
 
     /**
@@ -45,7 +48,9 @@ class PessoaController extends Controller
      */
     public function show($id)
     {
-        //
+        $pessoa = Pessoa::findOrFail($id);
+        return $pessoa;
+
     }
 
     /**
@@ -56,7 +61,7 @@ class PessoaController extends Controller
      */
     public function edit($id)
     {
-        //
+       
     }
 
     /**
@@ -68,7 +73,10 @@ class PessoaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pessoa = Pessoa::findOrFail($id);
+        $pessoa->save();
+        return $pessoa;
+
     }
 
     /**
@@ -79,6 +87,8 @@ class PessoaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pessoa = Pessoa::findOrFail($id);
+        $pessoa->delete();
+        return true;
     }
 }
