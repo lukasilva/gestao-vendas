@@ -37,7 +37,7 @@ class PessoaController extends Controller
     {
         $pessoa = new Pessoa($request->all());
         $pessoa->save();
-        return $pessoa;
+        return $this->jsonResponse($pessoa, 201);
     }
 
     /**
@@ -49,7 +49,7 @@ class PessoaController extends Controller
     public function show($id)
     {
         $pessoa = Pessoa::findOrFail($id);
-        return $pessoa;
+        return $this->jsonResponse($pessoa);
 
     }
 
@@ -75,7 +75,7 @@ class PessoaController extends Controller
     {
         $pessoa = Pessoa::findOrFail($id);
         $pessoa->save();
-        return $pessoa;
+        return $this->jsonResponse($pessoa);
 
     }
 
@@ -89,6 +89,6 @@ class PessoaController extends Controller
     {
         $pessoa = Pessoa::findOrFail($id);
         $pessoa->delete();
-        return true;
+        return $this->jsonResponse('cadastro deleteado com sucesso');
     }
 }
