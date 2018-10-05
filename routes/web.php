@@ -19,7 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/checkout', 'CheckoutController@index')->name('checkout');
+Route::get ('/cart'     , 'CheckoutController@index'   )->name( 'cart'     );
+Route::post('/checkout' , 'CheckoutController@checkout')->middleware( [ 'auth' , 'role:vendedor|cliente' ] )->name( 'checkout' );
 
 Route::get('/produto/{id}', 'ProdutoController@show')->name('produto');
 

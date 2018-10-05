@@ -11,6 +11,7 @@ class Compra extends Model
      *
      * @var array
      */
+    protected $table = "compra";
     protected $fillable = [
         'id',
         'pessoa_id',
