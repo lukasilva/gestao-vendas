@@ -64,12 +64,12 @@
                         
                         @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('checkout') }}">{{ __('Meu Carrinho') }}</a>
+                            <a class="nav-link" href="{{ route('cart') }}">{{ __('Meu Carrinho') }}</a>
                         </li>
                         @endguest
                         @role(['cliente', 'vendedor'])
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('checkout') }}">{{ __('Meu Carrinho') }}</a>
+                            <a class="nav-link" href="{{ route('cart') }}">{{ __('Meu Carrinho') }}</a>
                         </li>
                         @endrole
                         @guest

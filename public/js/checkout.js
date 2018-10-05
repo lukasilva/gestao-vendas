@@ -1,6 +1,41 @@
+$( document ).on( "keyup" , "input[name='cep']" , function(){
+
+    var cep = $( this ).val().replace( /\D/g , "");
+
+    //Verifica se campo cep possui valor informado.
+
+    if( cep != "" ) {
+
+        //Expressão regular para validar o CEP.
+        var validacep = /^[0-9]{8}$/;
+        //Valida o formato do CEP.
+        if( validacep.test( cep ) ){
+
+            var settings = {
+
+                "url"    : "https://viacep.com.br/ws/" + cep + "/json/",
+                "method" : "GET"
+
+            };
+
+            $.ajax( settings ).done( function( response ){
+
+                $( "input[name='estado']"      ).val( response.uf         ).trigger( "change" );
+                $( "input[name='cidade']"      ).val( response.localidade ).trigger( "change" );
+                $( "input[name='bairro']"      ).val( response.bairro     ).trigger( "change" );
+                $( "input[name='logradouro']"  ).val( response.logradouro ).trigger( "change" );
+
+            } );
+
+        }
+
+    }
+
+} );
+
 jQuery( document ).ready( function(){
     
-    //$.cookie( 'produto_1' , 2 );
+    //$.cookie( 'produto_1'  , 2 );
     //$.cookie( 'produto_18' , 1 );
     //$.cookie( 'produto_22' , 4 );
     
@@ -67,6 +102,7 @@ jQuery( document ).ready( function(){
                             jQuery( "#ProdutosCheckout" ).append(
                                 "\
                                     <div class='row' id='ProdutoCarrinho" + data.id + "'>\
+                                        <input type=\"hidden\" data-produto='" + data.id + "' id=\"ProdutoId" + data.id + "\" value=\"" + data.id + "\">\
                                         <div class='col-md-2 col-xs-2'><img style='width:100px;' class='img-responsive' src='" + ( imagens.length > 0 ? ( "/storage/images/" + imagens ) : 'http://placehold.it/100x70' ) + "'>\
                                         </div>\
                                         <div class=\"col-md-4 col-xs-4\">\
