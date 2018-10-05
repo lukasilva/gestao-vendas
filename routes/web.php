@@ -19,9 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/passpot', function () {
-    return view('auth.passport');
-});
+
 
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
@@ -33,4 +31,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     })->name('cadastro-lista');
 
     Route::get('/cadastro', 'PessoaController@create')->middleware('role:admin')->name('cadastro');
+
+    Route::get('/passpot', function () {
+        return view('auth.passport');
+    })->middleware('role:admin')->name('passport');
 });

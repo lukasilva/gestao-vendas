@@ -80,7 +80,14 @@ export default {
     onSubmit (evt) {
       this.form.submit();
       evt.preventDefault();
+      axios.post('/api/pessoa', this.form)                
+            .then(response => {
+                alert('to aqui');
+
+        
+        });
       alert(JSON.stringify(this.form));
+    
     },
     onReset (evt) {
       evt.preventDefault();
@@ -93,6 +100,7 @@ export default {
       this.show = false;
       this.$nextTick(() => { this.show = true });
     }
+    
   }
 }
 </script>

@@ -38,7 +38,7 @@
                             <a class="nav-link" href="{{ route('cadastro-lista') }}">Cadastro</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('dash-admin') }}">Liberação Web Service</a>
+                            <a class="nav-link" href="{{ route('passport') }}">Liberação Web Service</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('dash-admin') }}">Produtos</a>
