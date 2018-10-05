@@ -32,7 +32,7 @@
                     @foreach ($Produtos as $Produto)
                     <div class='row'>
                         <div class='col-md-2 col-xs-2'>
-                            <img style='width:100px;' class='img-responsive' src=''>
+                            <img style='width:100px;' class='img-responsive' src='{{$Produto->imagem}}'>
                         </div>
                         <div class="col-md-4 col-xs-4">
                             <h4 class="product-name"><strong>{{$Produto->nome}}</strong></h4>
@@ -55,7 +55,7 @@
                 <div class="card-footer">
                     <div class="row text-center">
                         <div class="col-md-9 col-xs-9">
-                            <h4 class="text-right">Total <strong>R$ {{$Compra->forma_pagamento}}</strong></h4>
+                            <h4 class="text-right">Total <strong>R$ {{$Compra->valor_total}}</strong></h4>
                         </div>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
     
     jQuery( document ).ready( function(){
         
-        clearCookie();//Limpar os cookies
+        clearCookie();
         
     } );
     
