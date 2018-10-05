@@ -32,26 +32,28 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <!-- <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav mr-auto">
+                    @role('admin')
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Cadastro') }}</a>
+                            <a class="nav-link" href="{{ route('cadastro-lista') }}">Cadastro</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Liberação Web Service') }}</a>
+                            <a class="nav-link" href="{{ route('dash-admin') }}">Liberação Web Service</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Produtos') }}</a>
+                            <a class="nav-link" href="{{ route('dash-admin') }}">Produtos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Vendas') }}</a>
+                            <a class="nav-link" href="{{ route('dash-admin') }}">Vendas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('SAC') }}</a>
+                            <a class="nav-link" href="{{ route('dash-admin') }}">SAC</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Relatórios') }}</a>
+                            <a class="nav-link" href="{{ route('dash-admin') }}">Relatórios</a>
                         </li>
-                    </ul> -->
+                    @endrole    
+                    </ul>
                 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
