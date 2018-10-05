@@ -23,10 +23,6 @@ Route::get('/checkout', 'CheckoutController@index')->name('checkout');
 
 Route::get('/produto/{id}', 'ProdutoController@show')->name('produto');
 
-Route::get('/passpot', function () {
-    return view('auth.passport');
-});
-
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::get('/', function () {
@@ -37,4 +33,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     })->name('cadastro-lista');
 
     Route::get('/cadastro', 'PessoaController@create')->middleware('role:admin')->name('cadastro');
+
+    Route::get('/passpot', function () {
+        return view('auth.passport');
+    })->middleware('role:admin')->name('passport');
 });

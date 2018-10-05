@@ -66843,6 +66843,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     onSubmit: function onSubmit(evt) {
       this.form.submit();
       evt.preventDefault();
+      axios.post('/api/pessoa', this.form).then(function (response) {
+        alert('to aqui');
+      });
       alert(JSON.stringify(this.form));
     },
     onReset: function onReset(evt) {
