@@ -1,7 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
-<form class="container" action="{{ route('checkout') }}">
+<form class="container" action="{{ route('checkout') }}" method="post">
+    @csrf
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -31,25 +32,25 @@
                         <div class="col-md-3">
                             <label class="col-form-label-sm d-block">
                                 CEP
-                                <input type="text" name="cep" class="form-control form-control-sm"/>
+                                <input type="text" name="cep" class="cookie form-control form-control-sm"/>
                             </label>
                         </div>
                         <div class="col-md-3">
                             <label class="col-form-label-sm d-block">
                                 Cidade
-                                <input type="text" name="cidade" class="form-control form-control-sm"/>
+                                <input type="text" name="cidade" class="cookie form-control form-control-sm"/>
                             </label>
                         </div>
                         <div class="col-md-3">
                             <label class="col-form-label-sm d-block">
                                 UF
-                                <input type="text" name="estado" class="form-control form-control-sm"/>
+                                <input type="text" name="estado" class="cookie form-control form-control-sm"/>
                             </label>
                         </div>
                         <div class="col-md-3">
                             <label class="col-form-label-sm d-block">
                                 Bairro
-                                <input type="text" name="bairro" class="form-control form-control-sm"/>
+                                <input type="text" name="bairro" class="cookie form-control form-control-sm"/>
                             </label>
                         </div>
                     </div>
@@ -57,19 +58,19 @@
                         <div class="col-md-6">
                             <label class="col-form-label-sm d-block">
                                 Logradouro
-                                <input type="text" name="logradouro" class="form-control form-control-sm"/>
+                                <input type="text" name="logradouro" class="cookie form-control form-control-sm"/>
                             </label>
                         </div>
                         <div class="col-md-3">
                             <label class="col-form-label-sm d-block">
                                 Número
-                                <input type="number" name="numero" class="form-control form-control-sm"/>
+                                <input type="number" name="numero" class="cookie form-control form-control-sm"/>
                             </label>
                         </div>
                         <div class="col-md-3">
                             <label class="col-form-label-sm d-block">
                                 Complemento
-                                <input type="text" name="complemento" class="form-control form-control-sm"/>
+                                <input type="text" name="complemento" class="cookie form-control form-control-sm"/>
                             </label>
                         </div>
                     </div>
@@ -86,7 +87,7 @@
                         <div class="col-md-3">
                             <label class="col-form-label-sm d-block">
                                 Forma de Pagamento
-                                <select name="forma_pagamento" class="form-control">
+                                <select name="forma_pagamento" class="cookie form-control">
                                     <option value="Dinheiro">Dinheiro</option>
                                     <option value="Cartão"  >Cartão  </option>
                                 </select>
