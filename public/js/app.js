@@ -67004,7 +67004,7 @@ var render = function() {
                     [
                       _c("b-form-input", {
                         attrs: {
-                          id: "senha",
+                          id: "senha_confirm",
                           type: "password",
                           required: "",
                           placeholder: "Confirme sua sua senha"
@@ -67104,14 +67104,41 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
-var items = [{ isActive: true, age: 40, first_name: 'Dickerson', last_name: 'Macdonald' }, { isActive: false, age: 21, first_name: 'Larsen', last_name: 'Shaw' }, { isActive: false, age: 89, first_name: 'Geneva', last_name: 'Wilson' }, { isActive: true, age: 38, first_name: 'Jami', last_name: 'Carney' }];
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      items: items
+      //   fields: [ 'Nome','E-mail','Tipo'],
+      cadastros: [],
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     };
+  },
+  mounted: function mounted() {
+    this.prepareComponent();
+  },
+
+  methods: {
+    prepareComponent: function prepareComponent() {
+      this.getCadastros();
+    },
+    getCadastros: function getCadastros() {
+      var _this = this;
+
+      axios.get('/api/pessoa', {
+        headers: { 'Authorization': "Bearer " + "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjAzNTdmNmU5NThiYWE0NzVmYTU1OTRlOTBiY2M1NDNkMzE2ZWE0MDVjNWRhNWE1MWE3ODFkZmFkZjg1MWQyYjRjOThhZDIyOTQwYmUxZWRkIn0.eyJhdWQiOiIxIiwianRpIjoiMDM1N2Y2ZTk1OGJhYTQ3NWZhNTU5NGU5MGJjYzU0M2QzMTZlYTQwNWM1ZGE1YTUxYTc4MWRmYWRmODUxZDJiNGM5OGFkMjI5NDBiZTFlZGQiLCJpYXQiOjE1Mzg3MDQ0NzgsIm5iZiI6MTUzODcwNDQ3OCwiZXhwIjoxNTcwMjQwNDc4LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.H5OqnNgkwbnNxzRc6J4junXMpQrli5bq4t2Rw9uYh9ltsaeqEcBnxsakeBz7mYDJZEwp63CD87aSC-mFKyo0QXCCrMUCYSu6p8K7taBUkg0WTVDTK05yjAKcrwM5S-IK8W5pmH8ix_DAkopwnTRdInzNb00Uwcff6YrN0JMZccKOay7wG8jwatdW1YQfm9rXgEVzXqjHL1gq-okzzNj7ZEQ3d50_MUCUAMr-paLaDrxK0IKdqtZxbWTSShiMyOvZ6JzrWFcPIKjwAxZIyQHE62-v2sXGt_6AxZ54W_WyZG9AMSRI_wQlKktq3RSlq5hgKMeUKM_amJUXuQYqyD0FO71CafG5NoYKPyBLU8PRWAWc-SwHAYwBxF1vdr-yuvMAlCOITIHHtsR1ZPzWZ67log1cevu0XgNIg5wI6XU3MhRulxs--Imw5VH8gW5FNVg5P60QyjMB-SzASUS85GQF_vc7L2BPkz9Rp4OV38FE7pOQ2rfuy9HDnLM1ETkqkihS65a38dtYTmbU7QOvKadh2AzzCckAeU8SEvY8TGTxD-6wjC8A6kdxIykyhH0TqDJ9-xOFO98Xl2EikELXMGHBTybp7zabnOKifDEy95pIq67_d1SWLCDatKrwx9eyV5Q3J_uUCFoQRigLn-y5K6hRrwRFy0t6w_lpcgT5RP28vuU" }
+      }).then(function (response) {
+        _this.cadastros = response.data;
+      });
+    }
   }
 });
 
@@ -67123,7 +67150,33 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("b-table", { attrs: { striped: "", hover: "", items: _vm.items } })
+  return _c(
+    "div",
+    [
+      _c("b-table", {
+        attrs: { striped: "", hover: "", items: _vm.cadastros }
+      }),
+      _vm._v(" "),
+      _c(
+        "form",
+        { attrs: { action: "/admin/cadastro", method: "get" } },
+        [
+          _c("input", {
+            attrs: { type: "hidden", name: "_token" },
+            domProps: { value: _vm.csrf }
+          }),
+          _vm._v(" "),
+          _c(
+            "b-button",
+            { attrs: { type: "submit", size: "sm", variant: "primary" } },
+            [_vm._v("\n          Cadastrar\n      ")]
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

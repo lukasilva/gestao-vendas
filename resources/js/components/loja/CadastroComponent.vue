@@ -43,7 +43,7 @@
         <b-form-group id="exampleInputGroup5"
                     label="Confirma Senha:"
                     label-for="exampleInput5">
-            <b-form-input id="senha"
+            <b-form-input id="senha_confirm"
                       type="password"
                       v-model="form.password_confirm"
                       required
