@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\User;
 use App\Role;
+use App\Pessoa;
 
 class UsersSeeder extends Seeder
 {
@@ -44,7 +45,7 @@ class UsersSeeder extends Seeder
             $user =  User::create([
                 'pessoa_id' => $pessoa->id,
                 'login' => 'fornecedor1',
-                'name' => $pessoa->name,
+                'name' => $pessoa->nome,
                 'email' => 'fornecedor1@gmail.com',
                 'password' => bcrypt('admin1234'),
             ]);
@@ -61,7 +62,7 @@ class UsersSeeder extends Seeder
             $user =  User::create([
                 'pessoa_id' => $pessoa->id,
                 'login' => 'fornecedor2',
-                'name' => $pessoa->name,
+                'name' => $pessoa->nome,
                 'email' => 'fornecedor2@gmail.com',
                 'password' => bcrypt('admin1234'),
             ]);
