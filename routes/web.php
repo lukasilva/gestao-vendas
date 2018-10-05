@@ -19,6 +19,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/checkout', 'CheckoutController@index')->name('checkout');
+
+Route::get('/produto/{id}', 'ProdutoController@show')->name('produto');
+
 Route::get('/passpot', function () {
     return view('auth.passport');
 });
