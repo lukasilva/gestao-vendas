@@ -20,11 +20,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('login', 'UserController@login')->name('login-api');
 Route::post('register', 'UserController@register');
+Route::resource('produto', 'ProdutoController')->middleware('role:fornecedor|admin');
 Route::group(['middleware' => 'auth:api'], function(){
     Route::post('details', 'UserController@details')->middleware('role:admin');
     Route::resource('pessoa', 'PessoaController')->middleware('role:admin');
     Route::resource('categoria', 'CategoriaController')->middleware('role:admin');
-    Route::resource('produto', 'ProdutoController')->middleware('role:fornecedor');
     Route::resource('compra', 'CompraController')->middleware('role:cliente|vendedor');
 });
 

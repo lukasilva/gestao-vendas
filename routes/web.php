@@ -25,9 +25,12 @@ Route::get('/passpot', function () {
 
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
+    Route::get('/', function () {
+        return view('dash-admin');
+    })->name('dash-admin');
     Route::get('/cadastro-lista', function () {
         return view('cadastro-lista');
-    });
+    })->name('cadastro-lista');
 
-    // Route::get('cadastro', 'PessoaController@register')->middleware('role:admin');
+    Route::get('/cadastro', 'PessoaController@create')->middleware('role:admin')->name('cadastro');
 });

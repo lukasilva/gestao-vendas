@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pessoa;
+use Illuminate\Support\Facades\DB;
 
 class PessoaController extends Controller
 {
@@ -14,7 +15,13 @@ class PessoaController extends Controller
      */
     public function index()
     {
-        //
+        $pessoas = DB::table('pessoas')
+        ->select('pessoas.nome', 'pessoas.tipo', 'users.email', 'roles.display_name')
+        ->join('users', 'pessoas.id', 'users.pessoa_id')
+        ->join('role_user', 'users.id', 'role_user.user_id')
+        ->join('roles', 'role_user.role_id', 'roles.id')
+        ->get();
+        return $this->jsonResponse($pessoas);
     }
 
     /**
@@ -24,7 +31,7 @@ class PessoaController extends Controller
      */
     public function create()
     {
-        
+        return view('cadastro');
     }
 
     /**
