@@ -69,5 +69,31 @@ class UsersSeeder extends Seeder
             $user->attachRole($roleFornecedor);
         }
 
+        $result = DB::table('users')->where('login', '%', 'cliente')->first();
+
+        if (!$result) {
+            
+            $roleFornecedor = Role::where('name', 'cliente')->first();
+
+            $pessoa = Pessoa::create([
+                'nome' => 'Cliente1', 
+                'nome_social' => 'Cliente1',
+                'tipo' => 'JURIDICA', 
+                'endereco' => json_encode('Rua teste'), 
+                'contato' => json_encode('33222419')
+            ]);
+
+            $user =  User::create([
+                'pessoa_id' => $pessoa->id,
+                'login' => 'Cliente1',
+                'name' => $pessoa->nome,
+                'email' => 'cliente1@gmail.com',
+                'password' => bcrypt('admin1234'),
+            ]);
+            $user->attachRole($roleFornecedor);
+
+        
+        }
+
     }
 }

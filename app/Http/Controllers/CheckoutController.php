@@ -72,7 +72,7 @@ class CheckoutController extends Controller
         
         $compra->pessoa_id        = Auth::user()->pessoa->id;
         $compra->produtos         = $ProdutosJson;
-        $compra->endereco_entrega = $endereco;
+        $compra->endereco_entrega = json_encode($endereco);
         $compra->forma_pagamento  = $post[ "forma_pagamento" ];
         $compra->valor_compra     = $ValorTotal;
         $compra->valor_desconto   = 0.00;

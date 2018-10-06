@@ -38,8 +38,8 @@
                     <ul class="navbar-nav mr-auto">
                         
                     </ul>
-                    <form class="form-inline mt-2 mt-md-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Buscar Produtos" aria-label="Buscar Produtos">
+                    <form action="" method="get" class="form-inline mt-2 mt-md-0">
+                        <input class="form-control mr-sm-2" type="text" name="busca" placeholder="Buscar Produtos" aria-label="Buscar Produtos">
                     </form>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
